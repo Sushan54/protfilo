@@ -1246,6 +1246,35 @@
       }
       section { padding: 30px 0; }
     }
+    .project-visual img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+    display:block;
+}
+
+.project-links{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+.project-links a{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:10px;
+    background:#2e7d32;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
+
+.project-links a:hover{
+    background:#1b5e20;
+    transform:translateY(-2px);
+}
   </style>
 </head>
 <body>
@@ -1550,6 +1579,45 @@
       View Live Project →
     </a>
   </div>
+        <div class="projects-grid">
+
+  <div class="project-card reveal">
+    <div class="project-visual">
+      <img src="/images/farmer47-preview.jpg" alt="Farmer47 Organic Store">
+    </div>
+
+    <div class="project-body">
+      <h3>Farmer47 – Organic Farm Marketplace</h3>
+
+      <p>
+        A modern, responsive e-commerce platform for fresh organic products.
+        Customers can browse vegetables, fruits, dairy products, and place
+        orders through a clean, fast, and mobile-friendly interface.
+      </p>
+
+      <div class="project-tags">
+        <span>Next.js</span>
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Tailwind CSS</span>
+        <span>Supabase</span>
+        <span>Vercel</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://farmer47-git-main-sushans-projects-3b7e8368.vercel.app/" target="_blank">
+          🌐 Live Demo
+        </a>
+
+        <a href="https://github.com/Sushan54/farmer47" target="_blank">
+          💻 Source Code
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 </div>
       <div class="projects-grid">
         <div class="project-card reveal">
