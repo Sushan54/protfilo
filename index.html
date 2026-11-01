@@ -93,7 +93,6 @@
       z-index: 1;
     }
 
-    /* Nav */
     nav {
       position: fixed;
       top: 0;
@@ -1325,7 +1324,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact" class="nav-cta">Contact Me</a></li>
       </ul>
@@ -1843,31 +1841,12 @@
       <p>&copy; 2026 <span>Sushan Ghimire</span> · Halgada, Itahari, Sunsari, Nepal</p>
       <ul class="footer-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://github.com/Sushan54" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Certificate Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-counter" id="lightboxCounter">1 / 4</span>
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous certificate">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next certificate">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
-    <div class="lightbox-viewport">
-      <img src="" alt="Certificate" id="lightboxImg">
-    </div>
-    <div class="lightbox-caption">
-      <strong id="lightboxTitle"></strong>
-      <span id="lightboxSub"></span>
-    </div>
-  </div>
 
   <!-- Floating Buttons -->
   <div class="fab-group">
@@ -1948,54 +1927,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // Certificate lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxSub = document.getElementById('lightboxSub');
-    const lightboxCounter = document.getElementById('lightboxCounter');
-    const certItems = Array.from(document.querySelectorAll('.cert-item'));
-    let currentCertIndex = 0;
-
-    function showCert(index) {
-      currentCertIndex = (index + certItems.length) % certItems.length;
-      const item = certItems[currentCertIndex];
-      lightboxImg.src = item.dataset.cert;
-      lightboxTitle.textContent = item.dataset.title;
-      lightboxSub.textContent = item.dataset.sub;
-      lightboxCounter.textContent = `${currentCertIndex + 1} / ${certItems.length}`;
-    }
-
-    function openLightbox(index) {
-      showCert(index);
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    certItems.forEach((item, i) => {
-      item.addEventListener('click', () => openLightbox(i));
-    });
-
-    lightboxPrev.addEventListener('click', e => { e.stopPropagation(); showCert(currentCertIndex - 1); });
-    lightboxNext.addEventListener('click', e => { e.stopPropagation(); showCert(currentCertIndex + 1); });
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lightbox-viewport')) closeLightbox(); });
-
-    document.addEventListener('keydown', e => {
-      if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') showCert(currentCertIndex - 1);
-      if (e.key === 'ArrowRight') showCert(currentCertIndex + 1);
-    });
 
     // Contact form
     document.getElementById('contactForm').addEventListener('submit', e => {
